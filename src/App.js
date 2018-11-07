@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
 import AddButton from './Components/Card/Button';
@@ -10,8 +10,7 @@ class App extends Component {
     boards: [],
   }
   addBoard = () => {
-    this.state.boards.push(<AddCard/>);
-    this.setState({boards: this.state.boards});
+    this.setState({boards: [...this.state.boards, <AddCard/>]});
      };
 
   render() {
@@ -21,7 +20,7 @@ class App extends Component {
       
       <AddCard/>
       
-      {this.state.boards.map(el=>el)}
+      {this.state.boards}
       <div style={{padding: '140px'}}>
       <AddButton onClick={this.addBoard}/>
       </div>

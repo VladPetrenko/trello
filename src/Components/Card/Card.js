@@ -30,7 +30,6 @@ class FabIntegrationSnackbar extends React.Component {
  }
 
 changeTitle = () => {
-  
   this.setState({editTitle: !this.state.editTitle})
 }
 
@@ -38,13 +37,10 @@ saveTitle = () => {
   this.setState({
     editTitle: false,
     title: this.refs.titleRef.value
-      
-    
   })
 }
 
 changeText = () => {
-  
   this.setState({editTextField: !this.state.editTextField})
 }
 
@@ -52,8 +48,6 @@ saveText = () => {
   this.setState({
     editTextField: false,
     textField: this.refs.textRef.value
-      
-    
   })
 }
 
@@ -68,6 +62,7 @@ saveText = () => {
             <Toolbar>
               <Typography variant="title" color="inherit">
               {this.state.editTitle ?
+
               <div>
                   <input
                   type="text"
@@ -75,10 +70,12 @@ saveText = () => {
                   ref="titleRef"
                   />
                   <button onClick={this.saveTitle}>save</button>
-              </div>: 
+              </div>
+              
+              : 
               
               <div onDoubleClick={this.changeTitle}>
-              {this.state.title}
+                  {this.state.title}
               </div>
             }
 
@@ -88,6 +85,7 @@ saveText = () => {
           </AppBar>
           {
             this.state.editTextField ?
+
             <div>
                   <input
                   type="text"
@@ -95,14 +93,16 @@ saveText = () => {
                   ref="textRef"
                   />
                   <button onClick={this.saveText}>save</button>
-            </div>:
+            </div>
+            
+            :
+
             <div onDoubleClick={this.changeText}>
-              {this.state.textField}
+                {this.state.textField}
             </div>
           }
           
         </div>
-
       </div>
     );
   }
