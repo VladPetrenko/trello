@@ -20,7 +20,9 @@ class App extends Component {
       
       <AddCard/>
       
-      {this.state.boards}
+      {this.state.boards.map((boards, index)=>
+          <div key={index}>{boards}</div>
+        )}
       <div style={{padding: '140px'}}>
       <AddButton onClick={this.addBoard}/>
       </div>
