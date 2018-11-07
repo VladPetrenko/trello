@@ -8,7 +8,7 @@ class AddCard extends React.Component {
     cards: [<Card/>],
     
   }
-  
+
   addCard = () => {
     this.setState({cards: [...this.state.cards, <Card/>]});
      };
@@ -27,3 +27,4 @@ class AddCard extends React.Component {
 }
 
 export default AddCard;
+ 
