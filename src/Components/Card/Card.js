@@ -66,7 +66,7 @@ saveText = () => {
               <div>
                   <input
                   type="text"
-                  defaultValue={this.state.title}
+                  defaultValue={this.props.title}
                   ref="titleRef"
                   />
                   <button onClick={this.saveTitle}>save</button>
@@ -75,7 +75,7 @@ saveText = () => {
               : 
               
               <div onDoubleClick={this.changeTitle}>
-                  {this.state.title}
+                  {this.props.title}
               </div>
             }
 
@@ -89,7 +89,7 @@ saveText = () => {
             <div>
                   <input
                   type="text"
-                  defaultValue={this.state.textField}
+                  defaultValue={this.props.textField}
                   ref="textRef"
                   />
                   <button onClick={this.saveText}>save</button>
@@ -98,7 +98,7 @@ saveText = () => {
             :
 
             <div onDoubleClick={this.changeText}>
-                {this.state.textField}
+                {this.props.textField}
             </div>
           }
           

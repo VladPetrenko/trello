@@ -1,12 +1,11 @@
 import React from 'react';
 
 import Card from '../Card/Card';
-import AddButton from '../Card/Button';
+import AddButton from '../Button/Button';
 
 class AddCard extends React.Component {
   state = {
-    cards: [<Card/>],
-    
+    cards: [],
   }
 
   addCard = () => {
@@ -17,6 +16,7 @@ class AddCard extends React.Component {
 
     return (
      <div style={{ margin: '0 20px', textAlign: 'center', width: '350px', float: 'left'}}>
+     <Card/>
        {this.state.cards.map((cards, index)=>
           <div key={index}>{cards}</div>
         )}

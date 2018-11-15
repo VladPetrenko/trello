@@ -2,30 +2,40 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-import AddButton from './Components/Card/Button';
+import AddButton from './Components/Button/Button';
 import AddCard from './Components/Cards/AddCard';
 
-class App extends Component {
-  state = {
-    boards: [],
-  }
-  addBoard = () => {
-    this.setState({boards: [...this.state.boards, <AddCard/>]});
-     };
+import Board from './Components/Board/Board';
 
+class App extends Component {
+state = {
+  boards: [{title:'titleBoard', text: 'textBoard', cards: []}],
+  
+}
+
+addBoard = () => {
+  let boardText = {title: 'titleBoard', text:'textBoard'};
+  this.setState({boards: [...this.state.boards, boardText]})
+}
+
+addCard = (cat, key, val)=> {
+  const category = {...this.state[cat]};
+  category[key] = val;
+  this.setState({ [cat]: category });
+}
   render() {
-    
+     
+
+    //  const trelloBoard = this.state.boards.map((board, i) => 
+    //  <div key={i}>
+    //    <Board title={board.title} textField={board.text} addBoard={this.addBoard} addCard={this.addCard}></Board>
+       
+    //  </div>
+    //  )
+
     return (
       <div className="App">
-      
-      <AddCard/>
-      
-      {this.state.boards.map((boards, index)=>
-          <div key={index}>{boards}</div>
-        )}
-      <div style={{padding: '140px'}}>
-      <AddButton onClick={this.addBoard}/>
-      </div>
+        <Board items={this.state.boards} addBoard={this.addBoard} addCard={this.addCard}/>
       </div>
     );
   }
